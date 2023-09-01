@@ -18,7 +18,7 @@ class UserResource(Resource):
         if User.find_by_user_id(data['user_id']):
             return jsonify(message="Id you entered is already registered!"),400
         
-        user = User(current_user,data["user_id"],data["username"])
+        user = User(current_user,data['user_id'],data['username'])
         user.save_to_db()
 
         return jsonify(message="User-Info registered successfully!")
