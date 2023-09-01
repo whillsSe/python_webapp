@@ -1,0 +1,27 @@
+{% extends "blog_template.html" %}
+{% block content %}
+<div class="draft">
+    <form method="POST" action="#">
+    {% if base %}
+        <input type="hidden" name="_method" value="PUT">
+    {% endif %}
+    <div class="draft_head">
+    {% if base != None %}
+        <input type="submit" value="更新" />
+        <input type="hidden" name="id" value="{{base.id}}">
+    {% else %}
+        <input type="submit" value="投稿" />
+    {% endif %}
+    </div>
+    <div class="article_title">
+        <input type="text" name="title" value="{{base.title}}">
+    </div>
+    <div class="article_tag">
+        <input type="text" name="tags" value="{% for tag in base.tags %}{{ tag.tag|e }}{% if not loop.last %},{% endif %}{% endfor %}">
+    </div>
+    <div class="article_content">
+        <textarea name="content">{{ base.content }}</textarea>
+    </div>
+</form>
+</div>
+{% endblock %}

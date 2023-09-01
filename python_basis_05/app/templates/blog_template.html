@@ -1,0 +1,18 @@
+{% extends "template.html" %}
+{% block body %}
+<header>
+    <div class="flex_wrapper">
+        <div class=""><h1>python_basis_05_blog</h1></div>
+        <div class="head_nav">
+            <div class="btn btn_createNew"><a href="/drafts/new">投稿する</a></div>
+        </div>
+    </div>
+</header>
+<main>
+    {% block content %}{% endblock %}
+</main>
+<footer>
+    {% block footer %}デフォルト仮フッター{% endblock %}
+</footer>
+
+{% endblock %}

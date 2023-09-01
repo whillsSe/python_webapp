@@ -1,0 +1,35 @@
+{% extends "template.html" %}
+{% block body %}
+<div class="modal_wrapper">
+    <div class="modal_window">
+        <div class="modal_head">
+            <h1>新規登録</h1>
+        </div>
+        <div class="modal_body">
+            <form method="POST" action="#">
+                <div class="modal_body_input">
+                    <p class="input_row">
+                        <label for="input_email">メールアドレス</label>
+                        <input type="email" name="email" id="input_email">
+                    </p>
+                    <p class="input_row">
+                        <label for="input_email">ユーザ名</label>
+                        <input type="username" name="username" id="input_username">
+                    </p>
+                    <p class="input_row">
+                        <label for="input_pass">パスワード</label>
+                        <input type="password" name="pass" id="input_pass">
+                    </p>
+                    <p class="input_row">
+                        <label for="input_pass_check">パスワード(再確認)</label>
+                        <input type="password" name="pass_check" id="input_pass_check">
+                    </p>
+                </div>
+                <div class="modal_body_btn">
+                    <input type="submit" value="登録">
+                </div>
+            </form> 
+        </div>
+    </div>
+</div>
+{% endblock %}

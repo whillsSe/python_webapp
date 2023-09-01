@@ -1,0 +1,14 @@
+{% extends "blog_template.html" %}
+{% block content %}
+    <div class="main_content">
+        <div class="article">
+            {% if session['user_id'] == article.user_id %}
+                <a href="/drafts/edit/{{article.id}}">編集</a>
+            {% endif %}
+            <div class="article_title"><h2>{{article.title}}</h2></div>
+            <div class="article_tag">{% for tag in article.tags %}<p class="tag">{{tag.tag}}</p>{% endfor %}</div>
+            <div class="article_content">{{article.content}}</div>
+
+        </div>
+    </div>
+{% endblock %}

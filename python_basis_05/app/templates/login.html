@@ -1,0 +1,30 @@
+{% extends "template.html" %}
+{% block body %}
+<div class="modal_wrapper">
+    <div class="modal_window">
+        <div class="modal_head">
+            <h1>ログイン</h1>
+        </div>
+        <div class="modal_body">
+            <form method="POST" action="#">
+                <div class="modal_body_input">
+                    {% if error %}
+                        <p class="error">{{ error }}</p>
+                    {% endif %}
+                    <p class="input_row">
+                        <label for="input_email">メールアドレス</label>
+                        <input type="email" name="email" id="input_email">
+                    </p>
+                    <p class="input_row">
+                        <label for="input_pass">パスワード</label>
+                        <input type="password" name="pass" id="input_pass">
+                    </p>
+                </div>
+                <div class="modal_body_btn">
+                    <input type="submit" value="ログイン">
+                </div>
+            </form> 
+        </div>
+    </div>
+</div>
+{% endblock %}

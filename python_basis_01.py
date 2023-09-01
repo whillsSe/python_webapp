@@ -1,0 +1,8 @@
+num1 = input("num1 = ")
+num2 = input("num2 = ")
+num1 = int(num1)
+num2 = int(num2)
+print("sum = " + str(num1+num2))
+print("dif = " + str(num1-num2))
+print("pro = " + str(num1*num2))
+print("quo = " + str(num1/num2))
