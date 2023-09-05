@@ -7,7 +7,7 @@ from flask_jwt_extended import JWTManager
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://sqlalchemy:python_basis_06@localhost:3306/python_basis_06'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://sqlalchemy:python_basis@localhost:3306/python_basis_06'
 app.config['SQLALCHEMY_ECHO'] = True
 
 app.config['JWT_SECRET_KEY'] = 'python_basis_06_tokenKey'
@@ -30,7 +30,7 @@ from app.resources.login import Login
 with app.app_context():
     db.create_all()
 
-api.add_resource(AuthenticationResource,'/register/authentication')
+api.add_resource(AuthenticationResource,'/authentication')
 api.add_resource(UserResource,'/user')
 api.add_resource(ProfileResource,'/profile')
 api.add_resource(Login,'/login')
