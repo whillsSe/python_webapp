@@ -1,0 +1,10 @@
+ $result = Invoke-WebRequest -Uri http://localhost:5000/register/authentication -Method POST -COntentType "application/json" -Body '{"email":"demoaccount@demo.com","password":"password"}'
+  $auth = $result.Headers['Authorization']
+   $headers = @{'Authorization'  = $auth}
+    $response2 = Invoke-WebRequest -Uri "http://localhost:5000/user" -Headers $headers -Method POST -ContentType "application/json" -Body '{"user_id":"python_basis","username":"demoAccount"}'
+     Invoke-WebRequest -Uri http://localhost:5000/login -Method POST -ContentType "application/json" -Body '{"login_info":"python_basis","password":"password"}'
+
+$result = Invoke-WebRequest -Uri http://localhost:5000/login -SessionVariable WebSession -Method POST -ContentType "application/json" -Body '{"login_info":"python_basis","password":"password","authUpdateRequest":"True"}'
+Invoke-WebRequest -Uri http://localhost:5000/login -WebSession $WebSession -Method POST -ContentType "application/json" -Body '{"login_info":"python_basis","password":"password"}'
+
+$result2 = Invoke-WebRequest -Uri http://localhost:5000/user -WebSession $WebSession -Headers $headers -ContentType "application/json" -Body '{email:"demorenewed@demo.com","password":"demopasswordrenewed"}'
